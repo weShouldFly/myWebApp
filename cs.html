@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html ng-app="one">
+<head>
+<meta charset="utf-8">
+<script type="text/javascript" src="js/jquery-3.2.1.js" ></script>
+<script type="text/javascript" src="js/angular.js" ></script>
+</script>
+ <script>
+// $.ajax({
+//			url:'http://api.dagoogle.cn/news/get-news?tableNum=1&pagesize=100',
+//			// data:"get",
+//			dataType:"jsonp",
+//			 // jsonp:"aa",  
+//     		// jsonpCallback:"success_jsonpCallback"
+//			 success:function(data){
+//				console.log(data)
+//				var data = data.data;
+//				// $("#show").html(data.data.content)
+//			 	
+//			 	
+//			 },
+//			 error:function(data){
+//			 	console.log(data)
+//			 }
+//		// }).always(function(data){
+//		
+//		})
+  var app=angular.module("one",[]);
+  app.controller("one1",function($scope,$http){
+      $http({
+      	method:"get",
+      	url:"http://api.dagoogle.cn/news/get-news?tableNum=1&pagesize=100"
+      }).then(function(data){
+      	var myData=data.data;
+      	console.log(myData);
+      })
+  })
+ </script>
+</head>
+<body>
+<div ng-controller="one1">
+	
+</div>
+</body>
+
+
+</html>
